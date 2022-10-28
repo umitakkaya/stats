@@ -1,16 +1,34 @@
 version: '3.9'
 
 services:
-  sm_assignment:
-    image: php_assignment:latest
-    container_name: php_assignment
+  php:
+    image: php_assignment_php:latest
+    container_name: supermetrics_php
     restart: "no"
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-php
       target: local
     ports:
       - "7777:80"
+    volumes:
+      - .:/app
+    links:
+      - "db:database"
+  db:
+    image: php_assignment_mariadb:latest
+    container_name: supermetrics_db
+    restart: "no"
+    build:
+      context: ./
+      dockerfile: Dockerfile-mariadb
+    environment:
+      MYSQL_DATABASE: '${MYSQL_DATABASE}'
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+    ports:
+      - "7778:3306"
 
 networks:
   default:

@@ -9,31 +9,47 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.0",
-        "ext-memcached": "*",
-        "guzzlehttp/guzzle": "7.4.0",
-        "vlucas/phpdotenv": "5.4.0",
-        "phpunit/php-timer": "5.0.3",
-        "psr/simple-cache": "3.0.0"
+        "php": "^8.1",
+        "ext-pdo": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "9.5.10"
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "App\\": "module/App/src",
-            "Statistics\\": "module/Statistics/src",
-            "SocialPost\\": "module/SocialPost/src"
+            "SmAssignment\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "SmAssignment\\Test\\Unit\\": "test/unit"
         }
     },
     "scripts": {
+        "container": [
+            "docker exec -ti supermetrics_php"
+        ],
+        "test": [
+            "@container vendor/bin/phpunit"
+        ],
+        "test-coverage": [
+            "@test --coverage-text"
+        ],
+        "build": [
+            "docker-compose build --force-rm && docker-compose up -d"
+        ],
         "serve": [
-            "docker-compose build --force-rm && docker-compose up"
+            "@build",
+            "@container composer install"
+        ],
+        "login-php": [
+            "docker exec -ti supermetrics_db /bin/bash"
+        ],
+        "login-mysql": [
+            "docker exec -ti supermetrics_db /bin/bash"
+        ],
+        "exec-php": [
+            "@container php"
         ]
     }
 }

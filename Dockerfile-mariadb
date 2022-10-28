@@ -1,0 +1,12 @@
+#
+#
+# Base install
+#
+FROM mariadb:10.9.3 as base
+
+LABEL vendor="Supermetrics"
+
+# Set common env variables
+ENV TZ="UTC"
+
+ADD ./docker/mariadb/schema.sql /docker-entrypoint-initdb.d

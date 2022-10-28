@@ -1,0 +1,31 @@
+#
+#
+# Base install
+#
+FROM php:8.1-fpm as base
+
+LABEL vendor="Supermetrics"
+
+# Set common env variables
+ENV TZ="UTC"
+ENV APACHE_DOCUMENT_ROOT="/app/public"
+ENV PHP_IDE_CONFIG="serverName=sm_assignment"
+ENV APP_ENV="local"
+
+RUN apt-get update \
+    && apt-get install -y git unzip
+
+RUN docker-php-ext-install pdo_mysql
+
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+COPY --chown=root:root docker/php/php.ini /usr/local/etc/php/php.ini
+
+ADD ./ /app
+
+WORKDIR /app
+
+FROM base as local
+
+#RUN pecl install xdebug \
+#	&& docker-php-ext-enable xdebug
