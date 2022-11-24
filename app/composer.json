@@ -1,5 +1,6 @@
 {
     "name": "supermetrics/php-assignment",
+    "description": "Supermetrics Test Assignment",
     "type": "project",
     "authors": [
         {
@@ -21,19 +22,17 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "module/App/src",
-            "Statistics\\": "module/Statistics/src",
-            "SocialPost\\": "module/SocialPost/src"
-        }
+            "App\\": "code/App/src/",
+            "Statistics\\": "code/Statistics/src/",
+            "SocialPost\\": "code/SocialPost/src/"
+        },
+        "exclude-from-classmap": [
+            "tests/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "serve": [
-            "docker-compose build --force-rm && docker-compose up"
-        ]
     }
 }
