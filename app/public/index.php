@@ -5,7 +5,7 @@ use Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$dotEnv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotEnv = Dotenv::createImmutable(__DIR__ . '/php-assignment');
 $dotEnv->load();
 
 \App\Config\Config::init();
