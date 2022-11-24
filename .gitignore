@@ -1,4 +1,5 @@
-.idea/
-vendor/
-packages/
-.env
+/.idea
+/.env
+/env/*.env
+/vendor
+.DS_Store
