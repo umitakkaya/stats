@@ -19,6 +19,9 @@ indent_style = tab
 [*.{yaml,yml}]
 trim_trailing_whitespace = false
 
+[*.conf.template]
+indent_size = 2
+
 [{docker-compose.yml, docker-compose.build.yml}]
 indent_size = 2
 
