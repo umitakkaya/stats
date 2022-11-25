@@ -22,9 +22,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "code/App/src/",
-            "Statistics\\": "code/Statistics/src/",
-            "SocialPost\\": "code/SocialPost/src/"
+            "App\\": "module/App/src/",
+            "Statistics\\": "module/Statistics/src/",
+            "SocialPost\\": "module/SocialPost/src/"
         },
         "exclude-from-classmap": [
             "tests/"
