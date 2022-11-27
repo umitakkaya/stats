@@ -1,8 +1,5 @@
 # Test assignment
 
-This application connects to a fictional social media network. One endpoint registers a token and the other endpoint 
-fetches posts made by fictional users across a 6-month period.
-
 ##### Table of Contents
 - [Notes about the API endpoints](#notes-about-the-api-endpoints)    
 - [Application overview](#application-overview)  
@@ -13,6 +10,27 @@ fetches posts made by fictional users across a 6-month period.
   - [Xdebug](#xdebug)  
   - [Logs](#logs)  
 - [Unit tests](#unit-tests)
+
+This application connects to a fictional social media network. One endpoint registers a token and the other endpoint
+fetches posts made by fictional users across a 6-month period.
+
+We would like you to add one extra calculation to this code. Currently, this
+application calculates:
+
+- Average character length of posts per month  
+- Longest post by character length per month  
+- Total posts split by week number  
+
+**1. Add the following calculation**:
+
+- Average number of posts **per user per month**.
+
+**2. Add at least one test of any kind. We leave the decision on what test and the
+  number of tests to you**.
+
+For the above please **do not FORK or make PRs to our repository**, instead clone it and
+send us the link to a Pull Request / Merge Request to your clone of the repository so that
+we can see clearly what you changed.
 
 ## Notes about the API endpoints
 
