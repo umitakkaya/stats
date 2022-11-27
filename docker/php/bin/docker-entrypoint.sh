@@ -1,10 +1,7 @@
 #!/bin/bash
 set -e
 
-PHP_INI_RECOMMENDED="$PHP_INI_DIR/php.ini-production"
-if [ "$APPLICATION_MODE" != 'production' ]; then
-	PHP_INI_RECOMMENDED="$PHP_INI_DIR/php.ini-development"
-fi
+PHP_INI_RECOMMENDED="$PHP_INI_DIR/php.ini-development"
 
 ln -sf "$PHP_INI_RECOMMENDED" "$PHP_INI_DIR/php.ini"
 
