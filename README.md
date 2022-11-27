@@ -74,8 +74,8 @@ following URL: [http://localhost:7777](http://localhost:7777).
 
 The application comes with pre-installed Xdebug. You can enable and configure it separately for PHP-FPM and PHP cli
 in the following files:
-- `/env/php-cli.env.dist`
-- `/env/php-fpm.env.dist`
+- `/env/php-cli.env`
+- `/env/php-fpm.env`
 
 The `Xdebug` section in the files above allows you to fine tune this tool according to your needs:
    ```` 
