@@ -25,7 +25,7 @@ Included tools:
 - Memcached
 - composer
 
-Application dependecies: 
+Dependencies: 
 * `guzzlehttp/guzzle` - to make API calls
 * `symfony/cache` - not to disturb the API much
 * `vlucas/phpdotenv` - to keep some config data out of files
@@ -53,7 +53,13 @@ the assignment.
 
 Please execute the following command to start the application:
 
+    docker-compose up
+
+Alternatively you can start the application containers in detached mode to suppress containers messages:
+
     docker-compose up --detach
+
+Please see the [Logs section](#Logs) for more details about log messages. 
 
 If you run the application for the first time, this will pull two images from the remote repository (~125Mb), 
 create `sm_assignment_app_web` and `sm_assignment_app_php_fpm` containers in the `sm_assignment` Compose project and 
@@ -165,3 +171,7 @@ As soon as you are done with the test assignment you can stop the application:
 
 This will stop the application and removes containers & network.
     
+You can also remove the images associated with the test assignment and free ~125MB of your disk space:
+
+    docker image rm superrakhmanchuk/sm_assignment_app_php_fpm
+    docker image rm superrakhmanchuk/sm_assignment_app_web
