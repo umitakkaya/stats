@@ -20,26 +20,26 @@ cp $PHP_INI_DIR/templates/zz-xdebug.ini $PHP_INI_DIR/conf.d/zz-xdebug.ini
 ### OPCache
 if [[ "${PHP_OPCACHE_ENABLE}" =~ ^(yes|true|1|on)$ ]]; then
 	sed -i "s|{{PHP_OPCACHE_ENABLE}}|${PHP_OPCACHE_ENABLE}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache is enabled."
+	echo "OPCache is enabled"
 else
 	sed -i "s|{{PHP_OPCACHE_ENABLE}}|0|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache is disabled."
+	echo "OPCache is disabled"
 fi
 
 if [[ "${PHP_OPCACHE_ENABLE_CLI}" =~ ^(yes|true|1|on)$ ]]; then
 	sed -i "s|{{PHP_OPCACHE_ENABLE_CLI}}|${PHP_OPCACHE_ENABLE_CLI}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache CLI is enabled."
+	echo "OPCache CLI is enabled"
 else
 	sed -i "s|{{PHP_OPCACHE_ENABLE_CLI}}|0|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache CLI is disabled."
+	echo "OPCache CLI is disabled"
 fi
 
 if [[ "${PHP_OPCACHE_CONSISTENCY_CHECKS}" =~ ^(yes|true|1|on)$ ]]; then
 	sed -i "s|{{PHP_OPCACHE_CONSISTENCY_CHECKS}}|${PHP_OPCACHE_CONSISTENCY_CHECKS}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache Consistency Checks is enabled."
+	echo "OPCache Consistency Checks is enabled"
 else
 	sed -i "s|{{PHP_OPCACHE_CONSISTENCY_CHECKS}}|0|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache Consistency Checks is disabled."
+	echo "OPCache Consistency Checks is disabled"
 fi
 
 if [[ "${PHP_OPCACHE_VALIDATE_TIMESTAMPS}" =~ ^(yes|true|1|on)$ ]]; then
@@ -47,7 +47,7 @@ if [[ "${PHP_OPCACHE_VALIDATE_TIMESTAMPS}" =~ ^(yes|true|1|on)$ ]]; then
 	echo "OPCache Validate Timestamps is enabled"
 else
 	sed -i "s|{{PHP_OPCACHE_VALIDATE_TIMESTAMPS}}|0|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "OPCache Validate Timestamps is disabled."
+	echo "OPCache Validate Timestamps is disabled"
 fi
 
 sed -i "s|{{PHP_OPCACHE_MEMORY_CONSUMPTION}}|${PHP_OPCACHE_MEMORY_CONSUMPTION}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
@@ -66,21 +66,21 @@ if [[ "${PHP_XDEBUG_ENABLE}" =~ ^(yes|true|1|on)$ ]] && [[ "${PHP_XDEBUG_MODE}" 
 	sed -i "s|{{PHP_XDEBUG_LOG_LEVEL}}|${PHP_XDEBUG_LOG_LEVEL}|g" "$PHP_INI_DIR/conf.d/zz-xdebug.ini"
 	sed -i "s|{{PHP_XDEBUG_START_WITH_REQUEST}}|${PHP_XDEBUG_START_WITH_REQUEST}|g" "$PHP_INI_DIR/conf.d/zz-xdebug.ini"
 	sed -i "s|{{PHP_XDEBUG_DISCOVER_CLIENT_HOST}}|${PHP_XDEBUG_DISCOVER_CLIENT_HOST}|g" "$PHP_INI_DIR/conf.d/zz-xdebug.ini"
-	echo "Xdebug is enabled."
+	echo "Xdebug is enabled"
 
 	sed -i "s|{{PHP_OPCACHE_JIT}}|disable|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
 	sed -i "s|{{PHP_OPCACHE_JIT_BUFFER_SIZE}}|0|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "JIT is disabled."
+	echo "JIT is disabled"
 else
-	echo "Xdebug is disabled."
+	echo "Xdebug is disabled"
 
 	sed -i "s|{{PHP_OPCACHE_JIT}}|${PHP_OPCACHE_JIT}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
 	sed -i "s|{{PHP_OPCACHE_JIT_BUFFER_SIZE}}|${PHP_OPCACHE_JIT_BUFFER_SIZE}|g" "$PHP_INI_DIR/conf.d/zz-php.ini"
-	echo "JIT is enabled."
+	echo "JIT is enabled"
 fi
 
-echo "Running composer install..."
-composer install --prefer-dist --no-suggest --no-interaction
-echo "Composer install finished."
+echo "Running composer install ..."
+composer install --prefer-install=dist --dev
+echo "Composer install finished"
 
 exec docker-php-entrypoint "$@"
