@@ -18,19 +18,18 @@ We would like you to add one extra calculation to this code. Currently, this
 application calculates:
 
 - Average character length of posts per month  
-- Longest post by character length per month  
+- The longest post by character length per month  
 - Total posts split by week number  
 
 **1. Add the following calculation**:
 
 - Average number of posts **per user per month**.
 
-**2. Add at least one test of any kind. We leave the decision on what test and the
-  number of tests to you**.
+**2. Add at least one test of any kind. We leave the decision on the number and kind of tests to you**.
 
 For the above please **do not FORK or make PRs to our repository**, instead clone it and
 send us the link to a Pull Request / Merge Request to your clone of the repository so that
-we can see clearly what you changed.
+we can clearly see what you changed.
 
 ## Notes about the API endpoints
 
@@ -58,7 +57,7 @@ email: returned for informational purposes only
 
 **GET: https://api.supermetrics.com/assignment/posts**
 
-This endpoint fetches posts along a number of pages using the registered token.
+This endpoint fetches posts along with the number of pages using the registered token.
 
 PARAMS:
 ```
@@ -74,7 +73,7 @@ posts: 100 posts per page
 
 ## Application overview
 
-This application is shipped with Docker Compose environment and requires Docker to be installed locally and running.
+This application is shipped with the Docker Compose environment and requires Docker to be installed locally and running.
 If you're not familiar with Docker or don't have it locally, please reach out to 
 [the official website](https://www.docker.com)
  to learn more and follow the Docker installation instructions to install it on your platform:   
@@ -143,7 +142,7 @@ As soon as you are done with the test assignment you can stop the application:
 
     docker-compose down
 
-This will stop the application and removes containers & network.
+This will stop the application and remove containers & network.
 
 You can also remove the images associated with the test assignment and free ~125MB of your disk space:
 
