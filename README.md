@@ -96,7 +96,7 @@ Once you made changes to these files, please remember to restart the application
 
     docker-compose down && docker-compose up
 
-AAlternatively you can restart the application in detached mode:
+Alternatively you can restart the application in detached mode:
 
     docker-compose down && docker-compose up --detach
 
