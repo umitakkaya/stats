@@ -34,11 +34,11 @@ we can see clearly what you changed.
 
 ## Notes about the API endpoints
 
-This application is using two custom API endpoints
+This application is using two custom API endpoints:
 
 **POST: https://api.supermetrics.com/assignment/register**
 
-This endpoint registers a token for use against the second endpoint
+This endpoint registers a token for use against the second endpoint.
 
 PARAMS:
 ```
