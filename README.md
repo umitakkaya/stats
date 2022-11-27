@@ -4,15 +4,15 @@ This application connects to a fictional social media network. One endpoint regi
 fetches posts made by fictional users across a 6-month period.
 
 ##### Table of Contents
-[Notes about the API endpoints](#notes-about-the-api-endpoints)    
-[Application overview](#application-overview)  
-[Local setup](#local-setup)  
-[Run application](#run-application)  
-[Debug application](#debug-application)  
-    [Xdebug](#xdebug)  
-    [Logs](#logs)  
-[Unit tests](#unit-tests)  
-[Remove the application](#remove-the-application)  
+- [Notes about the API endpoints](#notes-about-the-api-endpoints)    
+- [Application overview](#application-overview)  
+- [Local setup](#local-setup)  
+- [Run application](#run-application)
+- [Remove application](#remove-application)
+- [Debug application](#debug-application)  
+  - [Xdebug](#xdebug)  
+  - [Logs](#logs)  
+- [Unit tests](#unit-tests)
 
 ## Notes about the API endpoints
 
@@ -119,6 +119,19 @@ run the `composer install` command.
 The container will be listening on port `7777` on your `localhost`, you can access the application main page using the 
 following URL: [http://localhost:7777](http://localhost:7777).
 
+## Remove application
+
+As soon as you are done with the test assignment you can stop the application:
+
+    docker-compose down
+
+This will stop the application and removes containers & network.
+
+You can also remove the images associated with the test assignment and free ~125MB of your disk space:
+
+    docker image rm superrakhmanchuk/sm_assignment_app_php_fpm
+    docker image rm superrakhmanchuk/sm_assignment_app_web
+
 ## Debug application
 
 ### Xdebug
@@ -177,16 +190,3 @@ change the working directory inside the container by running `cd /srv/sm_assignm
 Run the tests with the following command:
 
     ./vendor/bin/phpunit -c ./tests/phpunit.xml
-
-## Remove the application
-
-As soon as you are done with the test assignment you can stop the application:
-
-    docker-compose down
-
-This will stop the application and removes containers & network.
-    
-You can also remove the images associated with the test assignment and free ~125MB of your disk space:
-
-    docker image rm superrakhmanchuk/sm_assignment_app_php_fpm
-    docker image rm superrakhmanchuk/sm_assignment_app_web
