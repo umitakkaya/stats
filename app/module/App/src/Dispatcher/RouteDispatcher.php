@@ -23,7 +23,7 @@ class RouteDispatcher
 
         list($path, $query) = array_pad($parts, 2, null);
 
-        parse_str($query, $params);
+        parse_str($query ?? '', $params);
 
         $routes = Config::get('routes');
         if (!array_key_exists($path, $routes)) {
