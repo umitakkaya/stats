@@ -15,14 +15,15 @@ class ParamsBuilder
 {
 
     /**
-     * @param DateTime $date
+     * @param DateTime $start
+     * @param DateTime $end
      *
      * @return ParamsTo[]
      */
-    public static function reportStatsParams(DateTime $date): array
+    public static function reportStatsParams(DateTime $start, DateTime $end): array
     {
-        $startDate = (clone $date)->modify('first day of this month')->setTime(0, 0, 0);
-        $endDate   = (clone $date)->modify('last day of this month')->setTime(23, 59, 59);
+        $startDate = (clone $start)->modify('first day of this month')->setTime(0, 0, 0);
+        $endDate   = (clone $end)->modify('last day of this month')->setTime(23, 59, 59);
 
         return [
             (new ParamsTo())
@@ -38,7 +39,7 @@ class ParamsBuilder
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
             (new ParamsTo())
-                ->setStatName(StatsEnum::AVERAGE_POST_NUMBER_PER_USER)
+                ->setStatName(StatsEnum::AVERAGE_POSTS_NUMBER_PER_USER_PER_MONTH)
                 ->setStartDate($startDate)
                 ->setEndDate($endDate),
         ];
