@@ -17,8 +17,8 @@ fetches posts made by fictional users across a 6-month period.
 We would like you to add one extra calculation to this code. Currently, this
 application calculates:
 
-- Average character length of posts per month  
-- The longest post by character length per month  
+- Average character length of posts in given date range
+- The longest post by character length in given date range  
 - Total posts split by week number  
 
 **1. Add the following calculation**:
